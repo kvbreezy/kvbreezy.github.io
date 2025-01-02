@@ -94,7 +94,6 @@
       border-radius: 3px;
     }
 
-  </style>
 </head>
 <body>
 
@@ -115,7 +114,6 @@
         <div class="progress"></div>
       </div>
     </div>
-  </div>
 
   <!-- Audio element -->
   <audio id="audio" src="Sangmin-Lee-English.m4a" preload="auto"></audio>
@@ -155,5 +153,4 @@
     });
   </script>
 
-</body>
 </html>
