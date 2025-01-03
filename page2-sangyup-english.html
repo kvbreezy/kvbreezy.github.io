@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,49 +20,53 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('Koh.jpg'); /* Replace with your image path */
+      background-image: url('koh.jpg'); /* Replace with your image path */
       background-size: cover;
       background-position: center;
       filter: brightness(100%);
     }
 
-    /* Center the text box */
+    /* Center the content box */
     .content {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
       text-align: center;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      font-family: avenir, sans-serif;
+      padding: 40px;  /* Add padding to the content box */
       border-radius: 20px;
       background-color: rgba(0, 0, 0, 0.85);
       width: 80%;
       max-width: 600px;
+      box-sizing: border-box;  /* Ensure padding doesn't affect the width */
+      display: flex;
+      flex-direction: column;
+      align-items: center;  /* Center content horizontally */
     }
 
-    .content h1 {
-      font-size: 3rem;
-      margin: 0;
+    /* Transparent Image */
+    .image-placeholder {
+      width: 350px;  /* Adjust the width of the image to a smaller size */
+      height: auto;
+      margin-bottom: 10px;  /* Reduce space between image and text */
     }
 
-    .content h2 {
-      font-size: 2rem;
-      margin: 10px 0 0;
-    }
-    
+    /* Remove margin from text and add padding-top for spacing */
     .content p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+      font-size: 1.5rem;
+      margin: 0;  /* Remove default margin */
+      padding-top: 10px;  /* Padding between the image and text */
+      color: white;  /* Ensure text is white */
     }
 
-    /* Audio controls at the bottom of the text box */
+    /* Audio controls at the bottom of the content box */
     .audio-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 20px;
+      width: 100%;  /* Ensure audio controls stretch across the content */
     }
 
     .play-button, .pause-button {
@@ -70,7 +75,7 @@
       color: white;
       padding: 10px;
       cursor: pointer;
-      font-size: 40 px;
+      font-size: 40px;
       border-radius: 50%;
       width: 60px;
       height: 60px;
@@ -104,8 +109,8 @@
       height: 100%;
       background-color: #76c7c0;
       border-radius: 3px;
+      transition: width 0.1s ease;
     }
-
   </style>
 </head>
 <body>
@@ -113,17 +118,18 @@
   <!-- Background Image -->
   <div class="background"></div>
 
-  <!-- Content Box with Text -->
+  <!-- Content Box -->
   <div class="content">
-    <h1>API Voices</h1>
-    <h2>Audio Guide<h/2>
+    <!-- Transparent png Image -->
+    <img src="APIVOICES.png" alt="Transparent Image" class="image-placeholder">
+    
     <p>You're listening to Sangyup Lee, a graduate student of Kinesiology.</p>
 
     <!-- Audio Controls -->
     <div class="audio-controls">
-      <button class="play-button">►</button>
-      <button class="pause-button">❚❚</button>
-      <div class="progress-bar">
+      <button class="play-button" aria-label="Play">►</button>
+      <button class="pause-button" aria-label="Pause">❚❚</button>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
         <div class="progress"></div>
       </div>
     </div>
@@ -131,7 +137,7 @@
 
   <!-- Audio element -->
   <audio id="audio" src="sangyup-english.m4a" preload="auto"></audio>
-
+  
   <script>
     const audio = document.getElementById('audio');
     const playButton = document.querySelector('.play-button');
@@ -156,6 +162,7 @@
     audio.addEventListener('timeupdate', () => {
       const progressPercentage = (audio.currentTime / audio.duration) * 100;
       progress.style.width = `${progressPercentage}%`;
+      progressBar.setAttribute('aria-valuenow', progressPercentage);
     });
 
     // Seek functionality (click on progress bar)
@@ -169,4 +176,3 @@
 
 </body>
 </html>
-
