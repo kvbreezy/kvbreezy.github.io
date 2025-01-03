@@ -1,134 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Guide</title>
-    <style>
-        /* Basic reset and full page style */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Audio Guide</title>
+  <style>
+    /* Set up the background photo */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
 
-        /* Background image */
-        .background {
-            background-image: url('jiha-moon.jpg'); /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-            position: relative;
-        }
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('jiha-moon.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      filter: brightness(100%);
+    }
 
-        /* White semi-transparent rectangle with shadow */
-        .content-box {
-            background-color: rgba(255, 255, 255, 0.85); /* 85% opacity */
-            width: 80%;
-            margin: 0 auto;
-            padding: 40px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-        }
+    /* Center the content box */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+      width: 80%;
+      max-width: 600px;
+    }
 
-        /* Text styling */
-        .content-box h1, .content-box h2 {
-            margin: 10px 0;
-        }
+    .content h1, .content h2, .content p {
+      margin: 0;
+      color: white;
+      font-size: 1.25rem;
+    }
 
-        .content-box h1 {
-            font-size: 36px; /* Large text */
-            font-weight: bold;
-        }
+    .content p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
 
-        .content-box h2 {
-            font-size: 24px; /* Medium text */
-        }
+    /* Audio controls at the bottom of the content box */
+    .audio-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
 
-        /* Audio player styles */
-        .audio-player {
-            margin-top: 20px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .play-button, .pause-button {
+      background-color: #76c7c0;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 40px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center;
+    }
 
-        /* Play/pause button and progress bar */
-        .audio-player button {
-            font-size: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+    .play-button {
+      display: inline-block;
+    }
 
-        .audio-player button:focus {
-            outline: none;
-        }
+    .pause-button {
+      display: none;
+    }
 
-        .audio-player input[type="range"] {
-            width: 80%;
-            margin: 0 10px;
-        }
-    </style>
+    .progress-bar {
+      flex-grow: 1;
+      margin-left: 10px;
+      margin-right: 10px;
+      height: 6px;
+      background-color: #555;
+      cursor: pointer;
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .progress {
+      width: 0;
+      height: 100%;
+      background-color: #76c7c0;
+      border-radius: 3px;
+      transition: width 0.1s ease;
+    }
+
+    /* Transparent TIF Image (replacing the text) */
+    .image-placeholder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 400px; /* You can adjust the size here */
+      height: auto;
+    }
+
+  </style>
 </head>
 <body>
 
-    <!-- Background Image -->
-    <div class="background">
-        <!-- Content Box -->
-        <div class="content-box">
-            <h2>You're listening to</h2>
-            <h1>Dr. Sangmin Lee</h1>
-            <h2>Assistant Professor of Art Education</h2>
+  <!-- Background Image -->
+  <div class="background"></div>
 
-            <!-- Audio Player -->
-            <div class="audio-player">
-                <button id="playPauseBtn">Play</button>
-                <input type="range" id="progressBar" value="0" max="100" step="0.1">
-            </div>
+  <!-- Content Box (Replaced text with transparent image) -->
+  <div class="content">
+    <!-- Replace with your transparent TIF image -->
+    <img src="your-image.tif" alt="Transparent Image" class="image-placeholder">
+    
+    <p>You're listening to Dr. Sangmin Lee, Assistant Professor of Art Education.</p>
 
-            <!-- Hidden Audio -->
-            <audio id="audio" src="your-audio-file.mp3"></audio>
-        </div>
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+      <button class="play-button" aria-label="Play">►</button>
+      <button class="pause-button" aria-label="Pause">❚❚</button>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress"></div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const audio = document.getElementById('audio');
-        const progressBar = document.getElementById('progressBar');
+  <!-- Audio element -->
+  <audio id="audio" preload="auto">
+    <source src="Sangmin-Lee-English.m4a" type="audio/m4a">
+    <source src="Sangmin-Lee-English.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
-        // Play or Pause the audio
-        playPauseBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playPauseBtn.textContent = 'Pause';
-            } else {
-                audio.pause();
-                playPauseBtn.textContent = 'Play';
-            }
-        });
+  <script>
+    const audio = document.getElementById('audio');
+    const playButton = document.querySelector('.play-button');
+    const pauseButton = document.querySelector('.pause-button');
+    const progressBar = document.querySelector('.progress-bar');
+    const progress = document.querySelector('.progress');
 
-        // Update progress bar as audio plays
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.value = progress;
-        });
+    // Play and pause buttons functionality
+    playButton.addEventListener('click', () => {
+      audio.play();
+      playButton.style.display = 'none';
+      pauseButton.style.display = 'inline-block';
+    });
 
-        // Allow user to change the progress
-        progressBar.addEventListener('input', () => {
-            audio.currentTime = (progressBar.value / 100) * audio.duration;
-        });
-    </script>
+    pauseButton.addEventListener('click', () => {
+      audio.pause();
+      playButton.style.display = 'inline-block';
+      pauseButton.style.display = 'none';
+    });
+
+    // Update progress bar as audio plays
+    audio.addEventListener('timeupdate', () => {
+      const progressPercentage = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = `${progressPercentage}%`;
+      progressBar.setAttribute('aria-valuenow', progressPercentage);
+    });
+
+    // Seek functionality (click on progress bar)
+    progressBar.addEventListener('click', (e) => {
+      const clickX = e.offsetX;
+      const duration = audio.duration;
+      const newTime = (clickX / progressBar.offsetWidth) * duration;
+      audio.currentTime = newTime;
+    });
+  </script>
 
 </body>
 </html>
