@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Voices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header small {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 24px;
+            margin: 10px 0 20px;
+        }
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <small>The Museum</small>
+        <h1>API Voices</h1>
+        <h2>Audio Guides</h2>
+    </header>
+
+    <div class="buttons-container">
+        <a href="page1.html" class="button">Guide 1</a>
+        <a href="page2.html" class="button">Guide 2</a>
+        <a href="page3.html" class="button">Guide 3</a>
+        <a href="page4.html" class="button">Guide 4</a>
+
+        <a href="page5.html" class="button">Guide 5</a>
+        <a href="page6.html" class="button">Guide 6</a>
+        <a href="page7.html" class="button">Guide 7</a>
+        <a href="page8.html" class="button">Guide 8</a>
+
+        <a href="page9.html" class="button">Guide 9</a>
+        <a href="page10.html" class="button">Guide 10</a>
+        <a href="page11.html" class="button">Guide 11</a>
+        <a href="page12.html" class="button">Guide 12</a>
+
+        <a href="page13.html" class="button">Guide 13</a>
+        <a href="page14.html" class="button">Guide 14</a>
+    </div>
+
+</body>
+</html>
