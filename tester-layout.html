@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
       padding: 40px;  /* Add padding to the content box */
       border-radius: 20px;
       background-color: rgba(0, 0, 0, 0.85);
-      width: 80%;
+      width: 90%;
       max-width: 600px;
       box-sizing: border-box;  /* Ensure padding doesn't affect the width */
       display: flex;
@@ -46,7 +47,7 @@
 
     /* Transparent Image */
     .image-placeholder {
-      width: 350px;  /* Adjust the width of the image to a smaller size */
+      width: 300px;  /* Adjust the width of the image to a smaller size */
       height: auto;
       margin-bottom: 10px;  /* Reduce space between image and text */
     }
@@ -72,9 +73,9 @@
       background-color: #76c7c0;
       border: none;
       color: white;
-      padding: 10px;
+      padding: 0px;
       cursor: pointer;
-      font-size: 40px;
+      font-size: 25px;
       border-radius: 50%;
       width: 60px;
       height: 60px;
@@ -82,6 +83,7 @@
       align-items: center; 
       justify-content: center; 
       text-align: center;
+      transition: all 0.3s ease; 
     }
 
     .play-button {
@@ -119,8 +121,10 @@
 
   <!-- Content Box -->
   <div class="content">
-    <!-- PNG Image (Replace text with image) -->
+    <!-- Transparent png Image -->
     <img src="APIVOICES.png" alt="Transparent Image" class="image-placeholder">
+    
+    <p>You're listening to Dr. Sangmin Lee, Assistant Professor of Art Education.</p>
 
     <!-- Audio Controls -->
     <div class="audio-controls">
@@ -133,10 +137,8 @@
   </div>
 
   <!-- Audio element -->
-  <audio id="audio" preload="auto">
-    <source src="Sangmin-Lee-English.m4a" type="audio/m4a">
-  </audio>
-
+  <audio id="audio" src="sangmin-english.m4a" preload="auto"></audio>
+  
   <script>
     const audio = document.getElementById('audio');
     const playButton = document.querySelector('.play-button');
@@ -175,4 +177,3 @@
 
 </body>
 </html>
-
