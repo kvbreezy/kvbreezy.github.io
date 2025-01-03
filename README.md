@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Webpage with Background and Textbox</title>
+  <title>API Audio Guide</title>
   <style>
-    /* Make the whole page fill the screen */
     body, html {
       margin: 0;
       padding: 0;
@@ -32,7 +31,7 @@
 <body>
 
   <div class="textbox">
-    <input type="text" placeholder="Enter text here" />
+    <body> You are listening to </body>
   </div>
 
 </body>
