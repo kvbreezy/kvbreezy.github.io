@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Audio Guide</title>
   <style>
-    /* Set up the background photo */
     body, html {
       margin: 0;
       padding: 0;
@@ -18,13 +17,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('jiha-moon.jpg'); /* Replace with your image path */
+      background-image: url('jiha-moon.jpg');
       background-size: cover;
       background-position: center;
       filter: brightness(80%);
     }
-
-    /* Center the text box */
+    
     .content {
       position: absolute;
       top: 50%;
@@ -50,7 +48,6 @@
       margin-top: 10px;
     }
 
-    /* Audio controls at the bottom of the text box */
     .audio-controls {
       display: flex;
       justify-content: space-between;
