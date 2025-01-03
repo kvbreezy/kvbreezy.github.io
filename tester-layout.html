@@ -22,9 +22,9 @@
             position: relative;
         }
 
-        /* White semi-transparent rectangle */
+        /* White semi-transparent rectangle with shadow */
         .content-box {
-            background-color: rgba(255, 255, 255, 0.75); /* 75% opacity */
+            background-color: rgba(255, 255, 255, 0.85); /* 85% opacity */
             width: 80%;
             margin: 0 auto;
             padding: 40px;
@@ -34,10 +34,11 @@
             transform: translate(-50%, -50%);
             text-align: center;
             border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
         }
 
         /* Text styling */
-        .content-box h1, .content-box h2, .content-box p {
+        .content-box h1, .content-box h2 {
             margin: 10px 0;
         }
 
@@ -48,10 +49,6 @@
 
         .content-box h2 {
             font-size: 24px; /* Medium text */
-        }
-
-        .content-box p {
-            font-size: 18px; /* Same size as "You're listening to" */
         }
 
         /* Audio player styles */
@@ -93,7 +90,6 @@
             <h2>You're listening to</h2>
             <h1>Dr. Sangmin Lee</h1>
             <h2>Assistant Professor of Art Education</h2>
-            <p>speak about Jiha Moon's print <i>Day or Night</i></p>
 
             <!-- Audio Player -->
             <div class="audio-player">
@@ -102,7 +98,7 @@
             </div>
 
             <!-- Hidden Audio -->
-            <audio id="audio" src="Sangmin-Lee-English.m4a"></audio>
+            <audio id="audio" src="your-audio-file.mp3"></audio>
         </div>
     </div>
 
