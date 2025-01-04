@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,44 +67,41 @@
       margin-top: 20px;
       width: 100%;  /* Ensure audio controls stretch across the content */
     }
-/* Default button styles */
-.play-button, .pause-button {
-  background-color: #76c7c0;
-  border: none;
-  color: white;
-  padding: 0;
-  cursor: pointer;
-  font-size: 25px; /* Default font size for desktop */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all 0.3s ease;
-}
 
-/* Increase font size inside buttons (icons) */
-.play-button, .pause-button {
-  font-size: 35px; /* Make it bigger by default if you want */
-}
+    /* Default button styles */
+    .play-button, .pause-button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      padding: 0;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      background-size: cover;
+      background-position: center;
+    }
 
-/* Media Query for Mobile Devices */
-@media (max-width: 600px) {
-  .play-button, .pause-button {
-    width: 80px;  /* Increase button size */
-    height: 80px; /* Increase button size */
-    font-size: 50px; /* Increase font size for better visibility on mobile */
-  }
-}
-
+    /* Set background images for the buttons */
     .play-button {
-      display: inline-block;
+      background-image: url('play.png');  /* Replace with your play button PNG */
     }
 
     .pause-button {
+      background-image: url('pause.png');  /* Replace with your pause button PNG */
       display: none;
+    }
+
+    /* Media Query for Mobile Devices */
+    @media (max-width: 600px) {
+      .play-button, .pause-button {
+        width: 80px;  /* Increase button size */
+        height: 80px; /* Increase button size */
+      }
     }
 
     .progress-bar {
@@ -143,8 +138,8 @@
 
     <!-- Audio Controls -->
     <div class="audio-controls">
-      <button class="play-button" aria-label="Play">►</button>
-      <button class="pause-button" aria-label="Pause">❚❚</button>
+      <button class="play-button" aria-label="Play"></button>
+      <button class="pause-button" aria-label="Pause"></button>
       <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
         <div class="progress"></div>
       </div>
