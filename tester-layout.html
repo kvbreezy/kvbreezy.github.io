@@ -75,25 +75,33 @@
       color: white;
       padding: 0;
       cursor: pointer;
-      width: 60px;
-      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       transition: all 0.3s ease;
-      background-size: cover;
-      background-position: center;
+      border-radius: 50%;  /* Circle */
+      width: 70px;  /* Circle size */
+      height: 70px; /* Circle size */
+      background-color: rgba(118, 199, 192, 0.8);  /* Circle background color */
+      position: relative;
+      box-sizing: border-box;
     }
 
     /* Set background images for the buttons */
     .play-button {
       background-image: url('play.png');  /* Replace with your play button PNG */
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .pause-button {
       background-image: url('pause.png');  /* Replace with your pause button PNG */
-      display: none;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: none;  /* Hide pause button initially */
     }
 
     /* Media Query for Mobile Devices */
@@ -141,49 +149,4 @@
       <button class="play-button" aria-label="Play"></button>
       <button class="pause-button" aria-label="Pause"></button>
       <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div class="progress"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Audio element -->
-  <audio id="audio" src="sangmin-english.m4a" preload="auto"></audio>
-  
-  <script>
-    const audio = document.getElementById('audio');
-    const playButton = document.querySelector('.play-button');
-    const pauseButton = document.querySelector('.pause-button');
-    const progressBar = document.querySelector('.progress-bar');
-    const progress = document.querySelector('.progress');
-
-    // Play and pause buttons functionality
-    playButton.addEventListener('click', () => {
-      audio.play();
-      playButton.style.display = 'none';
-      pauseButton.style.display = 'inline-block';
-    });
-
-    pauseButton.addEventListener('click', () => {
-      audio.pause();
-      playButton.style.display = 'inline-block';
-      pauseButton.style.display = 'none';
-    });
-
-    // Update progress bar as audio plays
-    audio.addEventListener('timeupdate', () => {
-      const progressPercentage = (audio.currentTime / audio.duration) * 100;
-      progress.style.width = `${progressPercentage}%`;
-      progressBar.setAttribute('aria-valuenow', progressPercentage);
-    });
-
-    // Seek functionality (click on progress bar)
-    progressBar.addEventListener('click', (e) => {
-      const clickX = e.offsetX;
-      const duration = audio.duration;
-      const newTime = (clickX / progressBar.offsetWidth) * duration;
-      audio.currentTime = newTime;
-    });
-  </script>
-
-</body>
-</html>
+        <div class="progre
