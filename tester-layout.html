@@ -69,23 +69,37 @@
       margin-top: 20px;
       width: 100%;  /* Ensure audio controls stretch across the content */
     }
+/* Default button styles */
+.play-button, .pause-button {
+  background-color: #76c7c0;
+  border: none;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  font-size: 25px; /* Default font size for desktop */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
 
-    .play-button, .pause-button {
-      background-color: #76c7c0;
-      border: none;
-      color: white;
-      padding: 0px;
-      cursor: pointer;
-      font-size: 25px;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center;
-      transition: all 0.3s ease; 
-    }
+/* Increase font size inside buttons (icons) */
+.play-button, .pause-button {
+  font-size: 35px; /* Make it bigger by default if you want */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+  .play-button, .pause-button {
+    width: 80px;  /* Increase button size */
+    height: 80px; /* Increase button size */
+    font-size: 50px; /* Increase font size for better visibility on mobile */
+  }
+}
 
     .play-button {
       display: inline-block;
