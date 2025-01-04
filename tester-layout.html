@@ -69,30 +69,41 @@
       width: 100%;  /* Ensure audio controls stretch across the content */
     }
 
-    .play-button, .pause-button {
-      background-color: #76c7c0;
-      border: none;
-      color: white;
-      padding: 0px;
-      cursor: pointer;
-      font-size: 25;
-      border-radius: 50%;
-      width: 75px;
-      height: 75px;
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center;
-      transition: all 0.3s ease; 
-    }
+   /* Default button styles */
+.play-button, .pause-button {
+  background-color: #76c7c0;
+  border: none;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  font-size: 25px; /* Adjust this for icon size */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
 
-    .play-button {
-      display: inline-block;
-    }
+.play-button img, .pause-button img {
+  width: 100%; /* Ensures the icon fills the button */
+  height: 100%;
+  object-fit: contain; /* Maintains the icon's aspect ratio */
+}
 
-    .pause-button {
-      display: none;
-    }
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+  .play-button, .pause-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .play-button {
+    font-size: 35px; /* Increase font size for mobile */
+  }
+}
 
     .progress-bar {
       flex-grow: 1;
