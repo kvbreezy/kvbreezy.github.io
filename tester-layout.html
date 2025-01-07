@@ -81,24 +81,17 @@
       text-align: center;
       transition: all 0.3s ease;
       border-radius: 50%;  /* Circle */
-      width: 70px;  /* Circle size for play button */
-      height: 70px; /* Circle size for play button */
+      width: 70px;  /* Circle size for both buttons */
+      height: 70px; /* Circle size for both buttons */
       background-color: rgba(118, 199, 192, 0.8);  /* Circle background color */
       position: relative;
       box-sizing: border-box;
     }
 
-    /* Pause button styles (smaller than play button) */
-    .pause-button {
-      width: 60px;  /* Smaller size for pause button (circle size) */
-      height: 60px; /* Smaller size for pause button (circle size) */
-      display: none;  /* Hide pause button initially */
-    }
-
     /* Remove background images and use <img> tags for icons inside the buttons */
     .play-button img, .pause-button img {
-      width: 50px;  /* Adjust size of the icon */
-      height: 50px; /* Ensure the icon fits well inside the button */
+      width: 35px;  /* Smaller icon size (to fit in the circle) */
+      height: 35px; /* Smaller icon size */
       object-fit: contain;
     }
 
@@ -109,14 +102,9 @@
         height: 80px; /* Increase button size on mobile */
       }
 
-      .pause-button {
-        width: 65px;  /* Keep the pause button smaller on mobile */
-        height: 65px; /* Same for mobile */
-      }
-
       .play-button img, .pause-button img {
-        width: 60px;  /* Increase icon size on mobile */
-        height: 60px; /* Keep icon proportionate */
+        width: 40px;  /* Slightly bigger icon size on mobile */
+        height: 40px; /* Keep icon proportionate */
       }
     }
 
