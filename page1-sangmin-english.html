@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,6 +143,24 @@
       border-radius: 3px;
       transition: width 0.1s ease;
     }
+
+    .home-button {
+      position: fixed; 
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border: none;
+      cursor: pointer; 
+    }
+
+    .home-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
   </style>
 </head>
 <body>
@@ -172,7 +191,11 @@
 
   <!-- Audio element -->
   <audio id="audio" src="sangmin-english.m4a" preload="auto"></audio>
-  
+
+  <!-- Home Button -->
+  <a href="index.html" class="home-button" aria-label="home">
+    <img src="home.png" alt="Home"> 
+  </a>
   <script>
     const audio = document.getElementById('audio');
     const playButton = document.querySelector('.play-button');
