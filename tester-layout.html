@@ -90,9 +90,20 @@
 
     /* Remove background images and use <img> tags for icons inside the buttons */
     .play-button img, .pause-button img {
-      width: 35px;  /* Smaller icon size (to fit in the circle) */
-      height: 35px; /* Smaller icon size */
+      width: 35px;  /* Default smaller icon size (to fit in the circle) */
+      height: 35px; /* Default smaller icon size */
       object-fit: contain;
+    }
+
+    /* Make play icon slightly larger */
+    .play-button img {
+      width: 40px;  /* Adjusted larger play icon */
+      height: 40px; /* Adjusted larger play icon */
+    }
+
+    /* Hide pause button by default */
+    .pause-button {
+      display: none;  /* Hide pause button initially */
     }
 
     /* Media Query for Mobile Devices */
@@ -163,6 +174,9 @@
     const pauseButton = document.querySelector('.pause-button');
     const progressBar = document.querySelector('.progress-bar');
     const progress = document.querySelector('.progress');
+
+    // Ensure the pause button is hidden on page load
+    pauseButton.style.display = 'none';
 
     // Play and pause buttons functionality
     playButton.addEventListener('click', () => {
